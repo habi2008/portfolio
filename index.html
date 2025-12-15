@@ -6,9 +6,7 @@
   <title>Habeeshan Ganesh</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -21,6 +19,7 @@
       min-height: 100vh;
       display: flex;
       justify-content: center;
+      transition: opacity 0.6s ease;
     }
 
     .container {
@@ -35,10 +34,6 @@
       gap: 48px;
       align-items: center;
       margin-bottom: 96px;
-    }
-
-    .hero-text {
-      flex: 1;
     }
 
     .hero-text h1 {
@@ -76,7 +71,7 @@
       margin-bottom: 16px;
     }
 
-    /* STACKED BOXES */
+    /* STACK */
     .stack {
       display: flex;
       flex-direction: column;
@@ -137,21 +132,51 @@
       margin-bottom: 10px;
     }
 
-    .contact a:hover {
-      opacity: 0.8;
+    /* LOADER */
+    #loader {
+      position: fixed;
+      inset: 0;
+      background: #0f0f12;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      z-index: 10;
+    }
+
+    #loader.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .loading-box { width: 320px; }
+
+    .loading-text {
+      text-align: center;
+      margin-bottom: 16px;
+      color: #cfcfd6;
+    }
+
+    .loading-bar {
+      height: 4px;
+      background: #2a2a30;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .loading-bar span {
+      display: block;
+      height: 100%;
+      width: 0%;
+      background: #9fa4ff;
     }
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
-      .hero {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .hero-image {
-        width: 100%;
-        height: 360px;
-      }
+      .hero { flex-direction: column; align-items: flex-start; }
+      .hero-image { width: 100%; height: 360px; }
     }
   </style>
 </head>
@@ -161,74 +186,42 @@
   <div id="main">
     <div class="container">
 
-      <!-- HERO -->
       <div class="hero">
         <div class="hero-text">
           <h1>Habeeshan Ganesh</h1>
-          <p>
-            I’m a 12th-grade Computer Science student exploring AI, large language models,
-            and web development, while gradually building skills in cybersecurity.
-          </p>
+          <p>12th-grade Computer Science student exploring AI, web systems, and calm human-centered design.</p>
         </div>
-
-        <!-- ✅ IMAGE PATH IS CORRECT -->
         <img src="./images/me.jpg" alt="Habeeshan Ganesh" class="hero-image">
       </div>
 
-      <!-- ABOUT ME -->
-      <div class="section">
-        <h2 class="section-title">About Me</h2>
-        <p>
-          I enjoy breaking things down to understand how systems actually work — from
-          how websites handle user input to how large-scale systems deal with traffic
-          and failure.
-        </p>
-        <p>
-          Right now, I’m focused on strengthening my foundation in Python and web
-          development, experimenting with AI prompts, and learning cybersecurity concepts
-          by studying real-world attacks in a safe, educational way.
-        </p>
-      </div>
-
-      <!-- WORKING ON -->
       <div class="section">
         <h2 class="section-title">What I’m Working On</h2>
-
         <div class="stack">
           <div class="nav-box" data-link="prompt-engineering/index.html">
             <h3>Prompt Engineering</h3>
-            <p>Designing structured prompts to control AI behavior, output format, and constraints.</p>
-            <span>Explore prompts →</span>
+            <p>Designing prompts that control structure, tone, and constraints.</p>
+            <span>Explore →</span>
           </div>
-
           <div class="nav-box" data-link="ddos/index.html">
             <h3>DDoS</h3>
-            <p>Understanding how traffic overload impacts availability and system design.</p>
+            <p>Learning how traffic overload affects system availability.</p>
             <span>Learn more →</span>
           </div>
-
           <div class="nav-box" data-link="sql-injection/index.html">
             <h3>SQL Injection</h3>
-            <p>Exploring how improper input handling can lead to unintended access.</p>
+            <p>Studying how input handling mistakes lead to risk.</p>
             <span>Learn more →</span>
           </div>
-
           <div class="nav-box" data-link="osint/index.html">
             <h3>OSINT</h3>
-            <p>Learning how publicly available information can be collected responsibly.</p>
+            <p>Understanding responsible use of public information.</p>
             <span>Learn more →</span>
           </div>
         </div>
       </div>
 
-      <!-- CONTACT -->
       <div class="contact">
         <h2>Contact</h2>
-        <p>
-          I’m open to internships, entry-level roles, and technical collaborations in
-          AI, LLMs, and software development.
-        </p>
-
         <a href="mailto:habeeshanganesh@gmail.com">Email</a>
         <a href="https://www.linkedin.com/in/habeeshan-ganesh-260554373" target="_blank">LinkedIn</a>
         <a href="https://github.com/habi2008" target="_blank">GitHub</a>
@@ -237,10 +230,37 @@
     </div>
   </div>
 
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loading-box">
+      <div class="loading-text">Opening…</div>
+      <div class="loading-bar"><span></span></div>
+    </div>
+  </div>
+
   <script>
-    document.querySelectorAll(".nav-box").forEach(box => {
-      box.addEventListener("click", () => {
-        window.location.href = box.getAttribute("data-link");
+    const boxes = document.querySelectorAll('.nav-box');
+    const loader = document.getElementById('loader');
+    const main = document.getElementById('main');
+
+    boxes.forEach(box => {
+      box.addEventListener('click', () => {
+        const link = box.getAttribute('data-link');
+        const bar = loader.querySelector('.loading-bar span');
+
+        main.style.opacity = '0';
+        loader.classList.add('active');
+
+        bar.style.width = '0%';
+        bar.style.transition = 'width 1.5s ease';
+
+        requestAnimationFrame(() => {
+          bar.style.width = '100%';
+        });
+
+        setTimeout(() => {
+          window.location.href = link;
+        }, 1500);
       });
     });
   </script>
