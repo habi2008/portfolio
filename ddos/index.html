@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DDoS — Habeeshan</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0f0f12;
+      color: #f5f5f7;
+      line-height: 1.7;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    body.loaded {
+      opacity: 1;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 96px 24px;
+    }
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: #9fa4ff;
+      margin-bottom: 48px;
+    }
+
+    h2 {
+      font-size: 26px;
+      margin: 56px 0 16px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #cfcfd6;
+      max-width: 760px;
+      margin-bottom: 20px;
+    }
+
+    .highlight {
+      background: #1a1a1f;
+      border-left: 4px solid #9fa4ff;
+      padding: 20px 24px;
+      border-radius: 12px;
+      margin: 40px 0;
+      color: #e5e5ea;
+    }
+
+    .highlight strong {
+      color: #ffffff;
+    }
+
+    /* NERD SECTION */
+    details {
+      margin-top: 48px;
+      background: #141418;
+      border-radius: 16px;
+      padding: 20px 24px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-size: 18px;
+      color: #9fa4ff;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details p {
+      margin-top: 20px;
+      color: #cfcfd6;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 72px;
+      color: #9fa4ff;
+      text-decoration: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .back:hover {
+      opacity: 0.7;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>DDoS</h1>
+    <div class="subtitle">Distributed Denial of Service</div>
+
+    <h2>What it means</h2>
+    <p>
+      A DDoS attack stands for <strong>Distributed Denial of Service</strong>. It is a situation where
+      a website or online service is flooded with more requests than it can handle, causing it to
+      slow down or stop working for real users.
+    </p>
+
+    <p>
+      The key idea is that the system itself is not broken or hacked. Instead, it is overwhelmed.
+      Because the requests come from many different places at once, the service struggles to stay
+      available.
+    </p>
+
+    <div class="highlight">
+      <strong>Think of it this way:</strong><br />
+      Imagine a store with one entrance. If thousands of people try to walk in at the same time,
+      nobody gets inside — even though the store is still open and fully functional.
+    </div>
+
+    <h2>Why people study DDoS</h2>
+    <p>
+      DDoS attacks help beginners understand why websites go down even when no data is stolen.
+      Availability is just as important as security, and overload alone can make a system unusable.
+    </p>
+
+    <p>
+      For developers and engineers, DDoS reveals how systems behave under extreme pressure and why
+      handling traffic spikes is a core part of modern system design.
+    </p>
+
+    <!-- NERD ONLY -->
+    <details>
+      <summary>For the nerds 👀 (expand if curious)</summary>
+      <p>
+        From a deeper perspective, DDoS attacks exploit resource limits such as bandwidth,
+        connection handling, request queues, or compute time. Even perfectly secure systems can fail
+        when shared resources are exhausted faster than they can recover.
+      </p>
+      <p>
+        This is why real-world defenses focus on traffic distribution, rate limiting, redundancy,
+        and absorbing attacks rather than trying to block every request. At scale, the challenge is
+        not identifying attackers — it is surviving load.
+      </p>
+    </details>
+
+    <a class="back" href="../">← Back to home</a>
+  </div>
+
+  <script>
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
+
+    document.querySelector(".back").addEventListener("click", function (e) {
+      e.preventDefault();
+      document.body.classList.remove("loaded");
+      setTimeout(() => {
+        window.location.href = this.href;
+      }, 500);
+    });
+  </script>
+</body>
+</html>

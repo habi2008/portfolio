@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SQL Injection — Habeeshan</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0f0f12;
+      color: #f5f5f7;
+      line-height: 1.7;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    body.loaded {
+      opacity: 1;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 96px 24px;
+    }
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: #9fa4ff;
+      margin-bottom: 48px;
+    }
+
+    h2 {
+      font-size: 26px;
+      margin: 56px 0 16px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #cfcfd6;
+      max-width: 760px;
+      margin-bottom: 20px;
+    }
+
+    .highlight {
+      background: #1a1a1f;
+      border-left: 4px solid #9fa4ff;
+      padding: 20px 24px;
+      border-radius: 12px;
+      margin: 40px 0;
+      color: #e5e5ea;
+    }
+
+    .highlight strong {
+      color: #ffffff;
+    }
+
+    /* NERD SECTION */
+    details {
+      margin-top: 48px;
+      background: #141418;
+      border-radius: 16px;
+      padding: 20px 24px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-size: 18px;
+      color: #9fa4ff;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details p {
+      margin-top: 20px;
+      color: #cfcfd6;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 72px;
+      color: #9fa4ff;
+      text-decoration: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .back:hover {
+      opacity: 0.7;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>SQL Injection</h1>
+    <div class="subtitle">Improper Input Handling</div>
+
+    <h2>What it means</h2>
+    <p>
+      SQL Injection is a problem that happens when an application accepts user input and blindly
+      trusts it. Instead of treating input as plain data, the system accidentally treats it as
+      instructions.
+    </p>
+
+    <p>
+      When this happens, someone can influence how the system looks up information, sometimes seeing
+      data they were never meant to access.
+    </p>
+
+    <div class="highlight">
+      <strong>Think of it this way:</strong><br />
+      Imagine filling out a form, but instead of writing your name, you sneak extra instructions
+      into the note. If the reader follows everything without question, they may reveal more than
+      they should.
+    </div>
+
+    <h2>Why people study SQL Injection</h2>
+    <p>
+      SQL Injection is one of the clearest examples of how small design mistakes can lead to serious
+      security problems. The system is not broken — it is simply too trusting.
+    </p>
+
+    <p>
+      Understanding this idea helps developers see why separating instructions from data is a
+      fundamental rule when building reliable applications.
+    </p>
+
+    <!-- NERD ONLY -->
+    <details>
+      <summary>For the nerds 👀 (expand if curious)</summary>
+      <p>
+        At a deeper level, SQL Injection occurs when user-controlled input is directly combined with
+        database queries. The database cannot tell which parts are data and which parts are commands,
+        so it executes everything together.
+      </p>
+      <p>
+        Modern defenses focus on strict separation between query structure and input, ensuring that
+        data never alters logic — no matter how cleverly it is crafted.
+      </p>
+    </details>
+
+    <a class="back" href="../">← Back to home</a>
+  </div>
+
+  <script>
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
+
+    document.querySelector(".back").addEventListener("click", function (e) {
+      e.preventDefault();
+      document.body.classList.remove("loaded");
+      setTimeout(() => {
+        window.location.href = this.href;
+      }, 500);
+    });
+  </script>
+</body>
+</html>

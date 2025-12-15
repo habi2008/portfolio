@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Habeeshan Ganesh</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0f0f12;
+      color: #f5f5f7;
+    }
+
+    #main {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 900px;
+      width: 100%;
+      padding: 100px 24px;
+    }
+
+    /* HERO */
+    .hero {
+      display: flex;
+      gap: 48px;
+      align-items: center;
+      margin-bottom: 96px;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero-text h1 {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      color: #cfcfd6;
+    }
+
+    .hero-image {
+      width: 300px;
+      height: 380px;
+      object-fit: cover;
+      border-radius: 18px;
+      flex-shrink: 0;
+    }
+
+    /* SECTIONS */
+    h2.section-title {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+
+    .section {
+      margin-bottom: 96px;
+    }
+
+    .section p {
+      font-size: 18px;
+      color: #cfcfd6;
+      max-width: 720px;
+      margin-bottom: 16px;
+    }
+
+    /* STACKED BOXES */
+    .stack {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .nav-box {
+      background: #1a1a1f;
+      border-radius: 24px;
+      padding: 36px;
+      cursor: pointer;
+      transition: transform 0.35s ease, background 0.35s ease;
+    }
+
+    .nav-box:hover {
+      transform: translateY(-6px);
+      background: #202028;
+    }
+
+    .nav-box h3 {
+      margin: 0 0 10px;
+      font-size: 24px;
+    }
+
+    .nav-box p {
+      margin: 0 0 14px;
+      font-size: 16px;
+      color: #cfcfd6;
+      max-width: 520px;
+    }
+
+    .nav-box span {
+      font-size: 15px;
+      color: #9fa4ff;
+    }
+
+    /* CONTACT */
+    .contact {
+      margin-top: 96px;
+    }
+
+    .contact h2 {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .contact p {
+      margin-bottom: 24px;
+      color: #cfcfd6;
+    }
+
+    .contact a {
+      display: block;
+      color: #9fa4ff;
+      text-decoration: none;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .contact a:hover {
+      opacity: 0.8;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-image {
+        width: 100%;
+        height: 360px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="main">
+    <div class="container">
+
+      <!-- HERO -->
+      <div class="hero">
+        <div class="hero-text">
+          <h1>Habeeshan Ganesh</h1>
+          <p>
+            I’m a 12th-grade Computer Science student exploring AI, large language models,
+            and web development, while gradually building skills in cybersecurity.
+          </p>
+        </div>
+
+        <!-- ✅ IMAGE PATH IS CORRECT -->
+        <img src="./images/me.jpg" alt="Habeeshan Ganesh" class="hero-image">
+      </div>
+
+      <!-- ABOUT ME -->
+      <div class="section">
+        <h2 class="section-title">About Me</h2>
+        <p>
+          I enjoy breaking things down to understand how systems actually work — from
+          how websites handle user input to how large-scale systems deal with traffic
+          and failure.
+        </p>
+        <p>
+          Right now, I’m focused on strengthening my foundation in Python and web
+          development, experimenting with AI prompts, and learning cybersecurity concepts
+          by studying real-world attacks in a safe, educational way.
+        </p>
+      </div>
+
+      <!-- WORKING ON -->
+      <div class="section">
+        <h2 class="section-title">What I’m Working On</h2>
+
+        <div class="stack">
+          <div class="nav-box" data-link="prompt-engineering/index.html">
+            <h3>Prompt Engineering</h3>
+            <p>Designing structured prompts to control AI behavior, output format, and constraints.</p>
+            <span>Explore prompts →</span>
+          </div>
+
+          <div class="nav-box" data-link="ddos/index.html">
+            <h3>DDoS</h3>
+            <p>Understanding how traffic overload impacts availability and system design.</p>
+            <span>Learn more →</span>
+          </div>
+
+          <div class="nav-box" data-link="sql-injection/index.html">
+            <h3>SQL Injection</h3>
+            <p>Exploring how improper input handling can lead to unintended access.</p>
+            <span>Learn more →</span>
+          </div>
+
+          <div class="nav-box" data-link="osint/index.html">
+            <h3>OSINT</h3>
+            <p>Learning how publicly available information can be collected responsibly.</p>
+            <span>Learn more →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTACT -->
+      <div class="contact">
+        <h2>Contact</h2>
+        <p>
+          I’m open to internships, entry-level roles, and technical collaborations in
+          AI, LLMs, and software development.
+        </p>
+
+        <a href="mailto:habeeshanganesh@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/habeeshan-ganesh-260554373" target="_blank">LinkedIn</a>
+        <a href="https://github.com/habi2008" target="_blank">GitHub</a>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll(".nav-box").forEach(box => {
+      box.addEventListener("click", () => {
+        window.location.href = box.getAttribute("data-link");
+      });
+    });
+  </script>
+
+</body>
+</html>

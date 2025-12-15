@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prompt Engineering — Habeeshan</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0f0f12;
+      color: #f5f5f7;
+      line-height: 1.6;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    body.loaded {
+      opacity: 1;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 96px 24px;
+    }
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: #cfcfd6;
+      max-width: 720px;
+      margin-bottom: 64px;
+    }
+
+    .prompt-card {
+      background: #1a1a1f;
+      border-radius: 24px;
+      padding: 36px;
+      margin-bottom: 32px;
+    }
+
+    .prompt-card h2 {
+      margin-top: 0;
+      margin-bottom: 16px;
+      font-size: 24px;
+    }
+
+    .label {
+      font-size: 14px;
+      color: #9fa4ff;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    pre {
+      background: #0f0f12;
+      padding: 20px;
+      border-radius: 14px;
+      overflow-x: auto;
+      font-size: 14px;
+      color: #e5e5eb;
+      white-space: pre-wrap;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 64px;
+      color: #9fa4ff;
+      text-decoration: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .back:hover {
+      opacity: 0.7;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Prompt Engineering</h1>
+    <p class="subtitle">
+      Designing structured prompts to precisely control AI behavior, format, and constraints.
+    </p>
+
+    <!-- Q1 -->
+    <div class="prompt-card">
+      <h2>Constraint Control — IP vs MAC</h2>
+
+      <span class="label">Task</span>
+      <pre>
+Explain IP address vs MAC address under strict limits on length,
+structure, vocabulary, and examples.
+      </pre>
+
+      <span class="label">My Prompt</span>
+      <pre>
+You are a person who knows computers inside out. You have completed all the below phd's
+PhD in Computer Networks
+PhD in Telecommunications
+PhD in Cybersecurity
+PhD in Distributed Systems
+PhD in Embedded Systems
+PhD in Wireless Communications
+PhD in Systems Engineering
+
+Explain IP address vs MAC address in under 80 words that mandatorily must include one clear
+example demonstrating the contrast.
+
+DO NOT use any technical jargon except for the two terms IP address vs MAC address.
+Make sure the explanation is under 80 words and in 2 paragraphs (HIGHLY MANDATORY)
+and use simple language.
+
+First paragraph MUST include the definition of what IP address and MAC address are
+(without any technical jargon).
+
+Second paragraph MUST include the example.
+
+NON NEGOTIABLE CONSTRAINTS:
+2 paragraphs
+Under 80 words
+Example in the second paragraph
+NO technical jargon
+
+Do all of the above with the provided constraints, nothing more nothing less,
+and at any cost do not break any of the constraints.
+      </pre>
+    </div>
+
+    <!-- Q3 -->
+    <div class="prompt-card">
+      <h2>Role + Structure Control — SQL Injection</h2>
+
+      <span class="label">Task</span>
+      <pre>
+Explain SQL Injection to beginners while enforcing role, audience,
+structure, and language constraints.
+      </pre>
+
+      <span class="label">My Prompt</span>
+      <pre>
+You are a university lecturer with a PhD in Cybersecurity and Computer Science
+and you specialize in SQL injection.
+
+You are going to give a lecture to First year IT students so keep in mind that
+NO TECHNICAL JARGON is allowed to be used.
+
+Explain SQL Injection by starting from high school level concepts and
+gradually escalating, making the learning seamless.
+
+Explain ONLY the following:
+Definition → What SQL Injection is
+Why it happens → Why systems are vulnerable
+Real-life example → Non-technical, safe example
+
+Language must be extremely simple. Use analogies and familiar concepts.
+Teach like Richard Feynman.
+
+Do not add anything else.
+Follow exactly this structure.
+      </pre>
+    </div>
+
+    <a class="back" href="../">← Back to home</a>
+  </div>
+
+  <script>
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
+
+    document.querySelector(".back").addEventListener("click", function (e) {
+      e.preventDefault();
+      document.body.classList.remove("loaded");
+      setTimeout(() => {
+        window.location.href = this.href;
+      }, 500);
+    });
+  </script>
+</body>
+</html>
